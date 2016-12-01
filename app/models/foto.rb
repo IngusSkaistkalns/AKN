@@ -1,4 +1,4 @@
-class Foto < ActiveRecord::Base
+class Foto < ApplicationRecord
   mount_uploader :file, FileUploader
 
   validates_processing_of :file
