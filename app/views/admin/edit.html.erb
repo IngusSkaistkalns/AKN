@@ -1,0 +1,15 @@
+<style>
+p{
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+</style>
+
+<p>
+<h1>Editing Foto</h1>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Apskatīt', @foto, :class => "button button1"%>
+<%= link_to 'Atpakaļ', admin_fotos_path, :class => "button button1" %>

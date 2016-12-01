@@ -1,0 +1,18 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @foto.name %>
+</p>
+
+<p>
+    <%if @foto.file.url == nil%>
+      Attēls nav pievienots.
+    <%else%>
+      <%= image_tag @foto.file.url %>
+    <%end%>
+</p>
+
+<%= link_to 'Rediģēt', edit_admin_foto_path(@foto), :class => "button button1" %>
+<%= link_to 'Atpakaļ', admin_fotos_path, :class => "button button2" %>

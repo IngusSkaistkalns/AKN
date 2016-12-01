@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+  <tbody>
+    <% @fotos.each do |foto| %>
+      <tr>
+        <td><%if foto.file.url == nil%>
+          Attēls nav pievienots.
+        <%else%>
+          <%= image_tag foto.file.url, :width => '300px'%>
+        <%end%></td>
+      </tr>
+    <% end %>
+  </tbody>

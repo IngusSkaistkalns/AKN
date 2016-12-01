@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fotos.each do |foto| %>
+      <tr>
+        <td><%if foto.file.url == nil%>
+          Attēls nav pievienots.
+        <%else%>
+          <%= image_tag foto.file.url, :width => '50px'%>
+        <%end%></td>
+        <td><%= foto.name %></td>
+        <td><%= link_to 'Apskatīt', foto, :class => "button button1"%></td>
+        <td><%= link_to 'Rediģēt', edit_admin_foto_path(foto), :class => "button button1" %></td>
+        <td><%= link_to 'Dzēst', [:admin, foto], method: :delete, data: { confirm: 'Are you sure?' }, :class => "button button1" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Pievienot jaunu failu', new_admin_foto_path, :class => "button button0" %>

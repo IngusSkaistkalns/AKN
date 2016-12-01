@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @foto.name %>
+</p>
+
+<p>
+  <%if @foto.file.url == nil%>
+    Attēls nav pievienots.
+  <%else%>
+    <%= image_tag @foto.file.url %>
+  <%end%>
+</p>
