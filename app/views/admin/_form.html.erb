@@ -1,10 +1,7 @@
-<p>Find me in app/views/fotos/_form.html.erb</p>
-
 <%= form_for [:admin, @foto], html: { multipart: true } do |f| %>
   <% if @foto.errors.any? %>
     <div id="error_explanation">
       <h2><%=pluralize(@foto.errors.count, "error") %> Neļaut saglabāt</h2>
-
 
       <ul>
          <% @foto.errors.full_messages.each do |message| %>
@@ -14,21 +11,43 @@
    </div>
   <% end %>
 
-<div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :file %><br>
-    <%= f.file_field :file %>
-  </div>
-
-  <div class="field">
-    <%= f.label :media_type %><br>
-    <%= f.select :media_type, ["", "Foto", "Video", "Grafika"] %>
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :name, class: 'middle' %>
+    </div>
+    <div class="medium-4 columns end">
+      <%= f.text_field :name %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :media_type, class: 'middle' %>
+    </div>
+    <div class="medium-4 columns end">
+      <%= f.select :media_type, ["", "Foto", "Video", "Grafika"] %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <%= f.label :file, class: 'middle' %>
+    </div>
+    <div class="medium-4 columns end">
+      <%= f.label :file, class: 'button', style: "display: block;" %>
+      <%= f.file_field :file, class: 'show-for-sr' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-4 medium-offset-2 columns end">
+        <div class="button-group">
+        <%= submit_tag "Saglabāt", class: 'button' %>
+        <%= link_to 'Atpakaļ', admin_fotos_path, :class => "button secondary" %>
+        <%- if @foto.persisted? %>
+          <%= link_to 'Apskatīt', @foto, :class => "button secondary"%>
+        <%- end %>
+      </div>
+    </div>
   </div>
 <% end %>
