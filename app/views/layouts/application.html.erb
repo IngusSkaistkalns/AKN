@@ -12,14 +12,20 @@
 
   <body>
     <header class="navbar navbar-fixed-top">
-      <div class="container">
+      <div class="container1">
         <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Visi", fotos_path%></li>
-            <li><%= link_to "Foto", fotos_path(media_type: 'Foto')%></li>
-            <li><%= link_to "Video", fotos_path(media_type: 'Video') %></li>
-            <li><%= link_to "Grafika", fotos_path(media_type: 'Grafika') %></li>
-            <li><%= link_to "Sākums", root_path %></li>
+          <ul class="menu">
+            <li class="dropdown">
+              <%= link_to "Portfolio", fotos_path, class: 'dropbtn'%>
+              <div class="dropdown-content">
+                <ul>
+                  <li><%= link_to "Foto", fotos_path(media_type: 'Foto', class: 'media')%></li>
+                  <li><%= link_to "Video", fotos_path(media_type: 'Video', class: 'media') %></li>
+                  <li><%= link_to "Grafika", fotos_path(media_type: 'Grafika', class: 'media') %></li>
+                </ul>
+              </div>
+            </li>
+            <li><%= link_to "Sākums", root_path%></li>
           </ul>
         </nav>
       </div>
@@ -27,5 +33,6 @@
     <div class = "container" style = "padding-top:20px;">
       <%= yield %>
     </div>
+
   </body>
 </html>

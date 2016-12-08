@@ -6,8 +6,22 @@
         <td><%if foto.file.url == nil%>
           Attēls nav pievienots.
         <%else%>
+        <div class="container">
           <%= image_tag foto.file.url, :width => '300px'%>
+        </div>
         <%end%></td>
       </tr>
     <% end %>
   </tbody>
+
+
+
+<style>
+  .container{
+    width: 100%;
+    padding: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid gray;
+  }
+</style>
