@@ -4,8 +4,13 @@ class AdminController < ApplicationController
   protected
 
   def authenticate
-    unless authenticate_with_http_basic {|u, p| u == 'kito' && p == 'kid' }
-      request_http_basic_authentication
+    data = AuthData.first
+
+    authenticated = authenticate_with_http_basic do |u, p|
+      50.times { p = Digest::SHA256.hexdigest(p) }
+      u == data.name && p == data.password
     end
+
+    request_http_basic_authentication unless authenticated
   end
 end

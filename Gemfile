@@ -9,14 +9,10 @@ gem 'rails_admin', '~> 1.0'
 
 gem 'pg'
 
-gem 'bcrypt', '~> 3.1'
-
 gem "paperclip", "~> 5.0.0"
 
 gem 'carrierwave'
 gem 'mini_magick'
-
-gem 'pry'
 
 gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
